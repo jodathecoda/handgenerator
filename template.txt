@@ -1,0 +1,12 @@
+PS Hand #1:
+Table 'ACPC Match' 2-max Seat #2 is the button
+Seat 1: op ($20000 in chips)
+Seat 2: ip ($20000 in chips)
+ip: posts small blind $50
+op: posts big blind $100
+*** HOLE CARDS ***
+Dealt to op [
+Dealt to ip [
+ip: raises $150 to $200
+op: calls $100
+*** FLOP **** [

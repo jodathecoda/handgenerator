@@ -230,6 +230,13 @@ for line in f:
     tokens = last_line.split()
 f.close()
 
+action_points = []
+for current_line in history:
+    tokens = current_line.split()
+    for act in actions:
+        if act in tokens and seat not in tokens:
+            action_points.append(current_line)
+
 #print(last_line)
 #print(tokens[2])
 flop_print = "*** FLOP **** [" + tokens[4] + " " + tokens[5] + " " + tokens[6] + "]"
@@ -260,4 +267,12 @@ hero_button = ""
 villain_button = ""
 skip_print = 0
 #clearscreen()
+'''
+if posts in current and villain in current and small_blind in current:
+    villain_button = "D"
+if posts in current and hero in current and small_blind in current:
+    hero_button = "D"
+'''
+print(action_points)
+
 

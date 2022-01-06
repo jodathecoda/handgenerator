@@ -221,23 +221,43 @@ chosen_slot = cwd + "//slots//log" + str(chosen_file_number) + ".log"
 f = open(chosen_slot,"r")
 
 hand_lines = []
+last_line = ""
 counter_lines = 0   
 for line in f:
     #print(line)
     history.append(line)
+    last_line = line
+    tokens = last_line.split()
 f.close()
 
-'''
-line_counter = 0
-counter_hands = 0
-action_points = []
-for current_line in history:
-    if start in current_line:
-        counter_hands += 1
-    tokens = current_line.split()
-    for act in actions:
-        if act in tokens and seat not in tokens:
-            action_points.append(current_line)
-    line_counter += 1
-'''
+#print(last_line)
+#print(tokens[2])
+flop_print = "*** FLOP **** [" + tokens[4] + " " + tokens[5] + " " + tokens[6] + "]"
+#print(flop_print)
+turn_print = "*** TURN **** [" + tokens[7] + "]"
+#print(flop_print)
+river_print = "*** RIVER **** [" + tokens[8] + "]"
+summary = "*** SUMMARY ***"
+
+print(flop_print)
+print(turn_print)
+print(river_print)
+print(summary)
+
+pot = 0
+herobet = 0
+vilbet = 0
+pot_offset = 0
+hand_title = ""
+hero_hand = ""
+villain_hand = ""
+hand_title = ""
+hand_action = ""
+flop_table = ""
+turn_table = ""
+river_table = ""
+hero_button = ""
+villain_button = ""
+skip_print = 0
+#clearscreen()
 

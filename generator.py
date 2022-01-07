@@ -246,6 +246,9 @@ turn_print = "*** TURN **** [" + tokens[7] + "]"
 river_print = "*** RIVER **** [" + tokens[8] + "]"
 summary = "*** SUMMARY ***"
 
+print("hand #" + str(chosen_file_number))
+print("villain (op): [" + tokens[0] + " " + tokens[1] + "]")
+print("hero (ip): [" + tokens[2] + " " + tokens[3] + "]")
 print(flop_print)
 print(turn_print)
 print(river_print)
@@ -263,7 +266,7 @@ hand_action = ""
 flop_table = ""
 turn_table = ""
 river_table = ""
-hero_button = ""
+hero_button = "D"
 villain_button = ""
 skip_print = 0
 #clearscreen()
@@ -273,6 +276,6 @@ if posts in current and villain in current and small_blind in current:
 if posts in current and hero in current and small_blind in current:
     hero_button = "D"
 '''
-print(action_points)
+print(action_points[-1])
 
 

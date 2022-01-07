@@ -253,6 +253,10 @@ print(flop_print)
 print(turn_print)
 print(river_print)
 print(summary)
+print("last action point:")
+print(action_points[-1])
+
+#construct_table based on last action point - which cards to show. Then save to file
 
 pot = 0
 herobet = 0
@@ -276,6 +280,6 @@ if posts in current and villain in current and small_blind in current:
 if posts in current and hero in current and small_blind in current:
     hero_button = "D"
 '''
-print(action_points[-1])
+
 
 

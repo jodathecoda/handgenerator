@@ -162,8 +162,6 @@ hero_button = ""
 villain_button = ""
 
 def print_table(hand_title, hand_action):
-    if skip_print:
-        pass
     clearscreen()
     if incognito:
         print(villain_hand[1:-2] + villain_button + " " + str(vilbet) + " : " + str(herobet)  + " " +hero_button + hero_hand[1:-2])
@@ -193,13 +191,6 @@ def clearscreen():
 
 if os.name == 'posix':
     pass
-
-def clearscreen():
-    if os.system('cls' if os.name == 'nt' else 'clear'):
-        if not terminal_size:
-            print("\n" * get_terminal_size().lines, end='')
-        else:
-            print("\n" * terminal_size, end='')
 
 pl = 0
 history = []
@@ -254,10 +245,15 @@ print(turn_print)
 print(river_print)
 print(summary)
 print("last action point:")
-print(action_points[-1])
+#print(action_points[-1])
+for ap in action_points:
+    print(ap)
 
-#construct_table based on last action point - which cards to show. Then save to file
+#construct_table based on next action point
+#walk trough the steps to the next decision point.
+#if hand is over, save to HH file and create on the same slot new situation
 
+titl = "hand #" + str(chosen_file_number)
 pot = 0
 herobet = 0
 vilbet = 0
@@ -273,13 +269,32 @@ river_table = ""
 hero_button = "D"
 villain_button = ""
 skip_print = 0
-#clearscreen()
-'''
-if posts in current and villain in current and small_blind in current:
-    villain_button = "D"
-if posts in current and hero in current and small_blind in current:
-    hero_button = "D"
-'''
+
+
+for current in action_points:
+    if "Dealt to op" in current:
+        villain_hand = current[-8:]
+        villain_hand_raw = current[-8:]
+        if incognito:
+            pass
+        else:
+            villain_hand = villain_hand.replace("s", suit_spade)
+            villain_hand = villain_hand.replace("h", suit_heart)
+            villain_hand = villain_hand.replace("d", suit_diamond)
+            villain_hand = villain_hand.replace("c", suit_club)
+    if "Dealt to ip" in current:
+        hero_hand = current[-8:]
+        hero_hand_raw = current[-8:]
+        if incognito:
+            pass
+        else:
+            hero_hand = hero_hand.replace("s", suit_spade)
+            hero_hand = hero_hand.replace("h", suit_heart)
+            hero_hand = hero_hand.replace("d", suit_diamond)
+            hero_hand = hero_hand.replace("c", suit_club)
+
+print_table(titl, ap)
+
 
 
 
